@@ -1,0 +1,19 @@
+.container{
+    width: 40%;
+
+    color: white;
+    background: rgb(57, 57, 228);
+    border-radius: 5px;
+    padding: 30px;
+    margin:auto;
+}
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 30px;
+    letter-spacing: 0,5px;
+}
+.copyIcon {
+    width: 30px;
+    height: 30px;
+}
