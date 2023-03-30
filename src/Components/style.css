@@ -1,7 +1,7 @@
 .container{
     width: 40%;
     color: white;
-    background: rgb(57, 57, 228);
+    background: rgb(32, 32, 187);
     border-radius: 5px;
     padding: 30px;
     margin: auto;
@@ -105,7 +105,7 @@
     text-align: center;
 }
 .slider .range {
-    width: calc(100%-80px);
+    width: calc(100% - 80px);
     height: 100%;
     margin-left: 20px;
     border-radius: 5px;
@@ -114,5 +114,30 @@
     padding: 0 20px;
     background-color: white;
     display: flex;
+    justify-content: center;
     align-items: center;
+}
+.slider .range input {
+    width: 100%;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.buttons button {
+    height: 45px;
+    background: rgb(20, 20, 24);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.buttons .generateBtn {
+    width: 80%;
+    margin-right: 5px;
+}
+.buttons .resetBtn {
+    width: 20%;
 }
