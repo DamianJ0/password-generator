@@ -6,6 +6,7 @@ const lowerCaseList = 'abcdefghijklmnopqrstuvwxyz'
 const upperCaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const numbersList = '0123456789'
 const symbolsList = '!@#$%^&*()'
+const dd =''
 
 function Home() {
 
