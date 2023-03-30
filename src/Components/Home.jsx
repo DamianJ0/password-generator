@@ -5,8 +5,8 @@ import copyIcon from '../assets/icon.svg'
 const lowerCaseList = 'abcdefghijklmnopqrstuvwxyz'
 const upperCaseList = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const numbersList = '0123456789'
-const symbolsList = '!@#$%^&*()'
-const dd =''
+const symbolsList = '!@#$%^&*()?'
+
 
 function Home() {
 
@@ -16,6 +16,35 @@ function Home() {
     const [numbers, setNumbers] = useState(true)
     const [symbols, setSymbols] = useState(true)
     const [passwordLength, setPasswordLength] = useState(10)
+    const generatePassword = () => {
+        let characterList = '';
+
+        if(lowerCase){
+            characterList += lowerCaseList;
+        }if(upperCase){
+            characterList += upperCaseList;
+        }if(numbers){
+            characterList += numbersList;
+        }if(symbols){
+            characterList += symbolsList;
+        }
+        
+        let tempPassword = '';
+        const characterListLength = characterList.length;
+
+        for(let i=0; i < passwordLength; i++){
+            const characterIndex = Math.round(Math.random() * characterListLength);
+            tempPassword += characterList.charAt(characterIndex);
+        }
+        setPassword(tempPassword);
+    }
+
+    const copyPassword = async () => {
+        const copyText = await navigator.clipboard.readText();
+        if(passwordLength){
+            navigator.clipboard.writeText(password);
+        }
+    }
 
   return (
     <div className='container'>
@@ -23,8 +52,8 @@ function Home() {
         <div className="password-wrapper">
             <div className="password-area">
                 <div className="password">
-                    <input type="text" disabled/>
-                    <img src={copyIcon} alt='copyIcon' className='copyIcon' />
+                    <input type="text" value={password} disabled/>
+                    <img src={copyIcon} alt='copyIcon' className='copyIcon' onClick={copyPassword} />
                 </div>
             </div>
         </div>
@@ -49,7 +78,7 @@ function Home() {
                         </div>
                         <div className="checkbox-field">
                         <input type="checkbox" name="symbols" id="symbols" checked={symbols} onChange={() => setSymbols(!symbols)}/>
-                        <label htmlFor='symbols'>Include symbols(!-*)</label>
+                        <label htmlFor='symbols'>Include symbols(!-?)</label>
                         </div>
                     </div>
                 </div>
@@ -65,8 +94,8 @@ function Home() {
             </div>
         </div>
         <div className="buttons">
-            <button class="generateBtn" type="button">Generate Password</button>
-            <button class="resetBtn" type="button">Reset</button>
+            <button className="generateBtn" onClick={generatePassword} type="button">Generate Password</button>
+            <button className="resetBtn" type="button">Reset</button>
         </div>
     </div>
   )
